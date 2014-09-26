@@ -1,0 +1,11 @@
+description "<%= name %>"
+
+start on (filesystem)
+stop on runlevel [016]
+
+respawn
+setuid nobody
+setgid nogroup
+chdir /srv/apps/<%= name %>/src
+
+exec /srv/apps/<%= name %>/venv/bin/gunicorn -b 127.0.0.1:<%= internal_port %> <%= app %>

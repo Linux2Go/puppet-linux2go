@@ -1,0 +1,2 @@
+class linux2go {
+}
